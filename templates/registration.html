@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Registration Page</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'img/icon-logo.png' %}">
+        <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <img src="{% static "img/logo.png" %}" alt="">
+            <div class="navigation">
+                <ul>
+                    <li><a href="http://localhost:8000/">Home</a></li>
+                    <li><a href="http://localhost:8000/">About Us</a></li>
+                    <li><a href="http://localhost:8000/signin/">Sign In</a></li>
+                </ul>
+            </div>
+        </header>
+        <section id="main-body">
+            <form action="#" method="POST">
+                {% csrf_token %}
+                {% load static %}
+                <div class="registration-body">
+                    <h3>Registration</h3>
+                    <label for='first_name'><b>First Name : </b></label>
+                    <input type='text' placeholder="Enter your first name" name='first_name' required><br>
+                    <label for='last_name'><b>Last Name :</b></label>
+                    <input type='text' placeholder='Enter your last name' name='last_name' required><br>
+                    <label for='register_as' ><b>Register as : </b>
+                        <input type='radio' name='class' value='student' required>
+                        <label ><b>Student</b></label>
+                        <input type='radio' name='class' value='tutor' required>
+                        <label ><b>Tutor</b></label><br>
+                    </label>
+                    <label for ='email'><b>Email Id :  </b></label>
+                    <input type="email" placeholder="Enter email" name="email" float="right"  required><br>  
+                    <label for='password'><b>Password : </b></label>
+                    <input type="password" placeholder="Enter Password" name="password" id="password" required><br>
+                    <label for='password'><b>Re-type Password : </b></label>
+                    <input type="password" placeholder="Re-type Password" name="re-password" id="re-password" required><br>
+                    <button type="submit" id="submit_button"><b>Register</b></button><br>
+                    <p id="password_error" style="color:red;"></p>
+                    Already have an account! <a href="http://localhost:8000/signin/"> Sign in </a> here.
+                </div>
+            </form>
+            <script>
+                $(document).ready(function () {
+                    $("password, #re-password").keyup(function() {
+                        var password = $("#password").val();
+                        var retype_password = $("#re-password").val();
+            
+                        if (password != retype_password) {
+                            // Display error message and disable the submit button
+                            $("#password_error").text("Passwords do not match!");
+                            $("#submit_button").prop('disabled', true);
+                        } else {
+                            // Clear the error message and enable the submit button
+                            $("#password_error").text("");
+                            $("#submit_button").prop('disabled', false);
+                        }
+                    });
+                });
+                </script>
+        </section>
+        {% comment %} main body section of default page ends here {% endcomment %}
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Education</h3>
+                <ul>
+                    <li><a href="">Courses</a></li>
+                    <li><a href="">Curriculums</a></li>
+                    <li><a href="">Scholarships</a></li>
+                    <li><a href="">Colaboration Cells</a></li>
+                    <li><a href="">e-Library</a></li>
+                    <li><a href="">e-Magazines</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="">Personal Teaching Assistance</a></li>
+                    <li><a href="">Financial Aid</a></li>
+                    <li><a href="">Internship Programme</a></li>
+                    <li><a href="">Job Fair</a></li>
+                    <li><a href="">Health Programme</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Career</h3>
+                <ul>
+                    <li><a href="">Our Culture</a></li>
+                    <li><a href="">Job Goals</a></li>
+                    <li><a href="">Apply for LearnApp</a></li>
+                    <li><a href="">Apply for our other firms</a></li>
+                    <li><a href="">Induction Programme</a></li>
+                </ul>
+            </div>
+            <div class="news-letter">
+                <img src="{% static "img/logo.png" %}" alt="">
+                <h4>For any queries, please contact us</h4>
+                <div class="mail">
+                    <h5>support@LearnApp.com</h5>
+                </div>
+             </div>
+        </div>
+        <div class="rights">
+            <h4>Copyright ©2023 All rights reserved | Developed and maintained by <img src="{% static "img/icon-logo.png" %}" alt=""> LearnApp</h4>
+        </div>
+    </footer>
+    </body>
+</html>

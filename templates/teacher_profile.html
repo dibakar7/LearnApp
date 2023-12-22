@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Teacher Profile Page</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'img/icon-logo.png' %}">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/default.css'%}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <img src="{% static "img/logo.png" %}" alt="">
+            <div class="navigation">
+                <ul>
+                    <li><a href='{% url 'teacher-profile' teacher_item.first_name %}'>{{ teacher_item.first_name }}</a></li>
+                    <li><button onClick="location.href='{% url 'signout' %}'" class="btn">Sign Out</button></li>
+                </ul>
+            </div>
+        </header>
+        <section id='main-body'>
+                    <div class="information-page">
+                        <h3>Personal Details</h3>
+                        <div class="user-information">
+                            <img src="{% static "img/user.png" %}" alt="Profile-icon">
+                            <h4>ID: <span> T{{ teacher_item.id }}</span></h4>
+                            <h4>Name: <span>{{teacher_item.first_name}} {{teacher_item.last_name}}</span></h4>
+                            <h4>Email: <span>{{ teacher_item.email }}</span></h4>
+                        </div>
+                    </div>
+                    <div class="course-box">
+                        <div class="heading">
+                            <h3>Created Course</h3>
+                        </div>
+                        <div class="sheet">
+                            {% if count == 0 %}
+                                <span>You have no course created yet!</span>
+                            {% endif %}
+                            {% for item in your_courses %}
+                            <div class="created-course">
+                                <a href="{% url 'CourseViewAsTeacher' teacher_item.first_name item.id %}">
+                                    <img src="{{ item.course_img.url }}" alt="{{item.course_name}}">
+                                </a>
+                                <div class="details">
+                                    <h3>{{ item.course_name }}</h3>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="create-course">
+                        <h3>Create Course</h3><br>
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <label for="course name"><b>Course Name: </b></label>
+                            <input type="text" id="courseName" name="courseName" required>
+                            <label for="course description"><b>Course Description: </b></label>
+                            <input type="text" id="courseDesc" name="courseDesc" required>
+                            <label for="course image"><b>Image: </b></label>
+                            <input type="file" id="courseImg" name="courseImg" action="/upload" accept=".img, .png, .jpeg, .jpg" required>
+                            <label for="course notes"><b>Notes :</b></label>
+                            <input type="file" id="courseNotes" name="courseNotes" accept=".pdf" action="/upload" required>
+                            <label for="external links"><b>Video Link :</b></label>
+                            <input type="text" id="externalLinks" name="externalLinks" required>
+                            <button type="submit" class="btn"><b>Submit</b></button><br>
+                        </form>
+                    </div>
+        </section>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Education</h3>
+                    <ul>
+                        <li><a href="">Courses</a></li>
+                        <li><a href="">Curriculums</a></li>
+                        <li><a href="">Scholarships</a></li>
+                        <li><a href="">Colaboration Cells</a></li>
+                        <li><a href="">e-Library</a></li>
+                        <li><a href="">e-Magazines</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="">Personal Teaching Assistance</a></li>
+                        <li><a href="">Financial Aid</a></li>
+                        <li><a href="">Internship Programme</a></li>
+                        <li><a href="">Job Fair</a></li>
+                        <li><a href="">Health Programme</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Career</h3>
+                    <ul>
+                        <li><a href="">Our Culture</a></li>
+                        <li><a href="">Job Goals</a></li>
+                        <li><a href="">Apply for LearnApp</a></li>
+                        <li><a href="">Apply for our other firms</a></li>
+                        <li><a href="">Induction Programme</a></li>
+                    </ul>
+                </div>
+                <div class="news-letter">
+                    <img src="{% static "img/logo.png" %}" alt="">
+                    <h4>For any queries, please contact us</h4>
+                    <div class="mail">
+                        <h5>support@LearnApp.com</h5>
+                    </div>
+                 </div>
+            </div>
+            <div class="rights">
+                <h4>Copyright ©2023 All rights reserved | Developed and maintained by <img src="{% static "img/icon-logo.png" %}" alt=""> LearnApp</h4>
+            </div>
+        </footer>
+        <script>
+            if (window.history && window.history.pushState) {
+                window.history.pushState('', null, './');
+                $(window).on('popstate', function() {
+                    window.history.pushState('', null, './');
+                    console.log('Hey its working');
+                });
+            }
+        </script>
+    </body>
+</html>

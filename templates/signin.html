@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign In Page</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'img/icon-logo.png' %}">
+        <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    </head>
+    <body>
+        <header>
+            <img src="{% static "img/logo.png" %}" alt="">
+            <div class="navigation">
+                <ul>
+                    <li><a href="http://localhost:8000/">Home</a></li>
+                    <li><a href="http://localhost:8000/">About Us</a></li>
+                    <li><a href="http://localhost:8000/register/">Register</a></li>
+                </ul>
+            </div>
+        </header>
+        <section id="main-body">
+            <form action="#" method="post" >
+                {% csrf_token %}
+                {% load static %}
+                <div class="login-body">
+                    <h3>Sign In</h3>
+                    <label for='class' ><b>Sign in as : </b></label>
+                    <input type='radio' name='class' value='Student' required autocomplete="off">
+                    <label ><b>Student</b></label>
+                    <input type='radio' name='class' value='Tutor' required autocomplete="off">
+                    <label ><b>Tutor</b></label><br>
+                    <label for ='email'><b>UserEmail :  </b></label>
+                    <input type="email" placeholder="Enter email" name="email" float="right"  required ><br>  
+                    <label for='password'><b>Password : </b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required autocomplete="off"><br>  
+                    <button type="submit"><b>Sign In</b></button><br>     
+                    Don't have an account <a href="http://localhost:8000/register/"> Register </a> here.
+                </div>
+            </form>
+        </section>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Education</h3>
+                    <ul>
+                        <li><a href="">Courses</a></li>
+                        <li><a href="">Curriculums</a></li>
+                        <li><a href="">Scholarships</a></li>
+                        <li><a href="">Colaboration Cells</a></li>
+                        <li><a href="">e-Library</a></li>
+                        <li><a href="">e-Magazines</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="">Personal Teaching Assistance</a></li>
+                        <li><a href="">Financial Aid</a></li>
+                        <li><a href="">Internship Programme</a></li>
+                        <li><a href="">Job Fair</a></li>
+                        <li><a href="">Health Programme</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Career</h3>
+                    <ul>
+                        <li><a href="">Our Culture</a></li>
+                        <li><a href="">Job Goals</a></li>
+                        <li><a href="">Apply for LearnApp</a></li>
+                        <li><a href="">Apply for our other firms</a></li>
+                        <li><a href="">Induction Programme</a></li>
+                    </ul>
+                </div>
+                <div class="news-letter">
+                    <img src="{% static "img/logo.png" %}" alt="">
+                    <h4>For any queries, please contact us</h4>
+                    <div class="mail">
+                        <h5>support@LearnApp.com</h5>
+                    </div>
+                 </div>
+            </div>
+            <div class="rights">
+                <h4>Copyright ©2023 All rights reserved | Developed and maintained by <img src="{% static "img/icon-logo.png" %}" alt=""> LearnApp</h4>
+            </div>
+        </footer>
+    </body>
+</html>

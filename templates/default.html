@@ -1,0 +1,317 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/icon-logo.png' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Source+Code+Pro:wght@300&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static "img/logo.png" %}" alt="">
+        <div class="navigation">
+            <ul>
+                <li><a href='{% url 'home' %}'>Home</a></li>
+                <li><a href='{% url 'home' %}'>About Us</a></li>
+                <li><a href='{% url 'signin' %}'>Sign In</a></li>
+                <li><a href='{% url 'register' %}'>Register</a></li>
+            </ul>
+
+        </div>
+    </header>
+    {% comment %} header section ends here {% endcomment %}
+
+    {% comment %} main body section for default page starts from here {% endcomment %}
+    <section id="main-body">
+        {% comment %} <img src="{% static "img/default.jpg" %}" alt=""> {% endcomment %}
+        <div class="about-us">
+            <h2>About Us</h2>
+            <p>We are here to provide an alternative to traditional classroom-based learning that is 
+                more flexible and accessible. LearnApp allows students to learn at their own pace and on their own schedule, 
+                which can be especially beneficial for those with busy schedules or other commitments. 
+                We also provide a platform for educators to share their knowledge and expertise with
+                a wider audience, which can help to democratize education and make it more accessible to people around the world.
+            </p>
+        </div>
+        {% comment %} demo courses code starts from here {% endcomment %}
+        <div class="course-box">
+            <h2>Our Popular Courses</h2>
+            <div class="sheet">
+                <div class="demo-course">
+                    <img src="{% static "img/cpp-logo.jpg" %}" alt="">
+                    <div class="details">
+                        <h3>Programming in C++</h3>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Updated 12/08/23</span>
+                        <br>
+                        <br>
+                        <span>[264 Enrolled]</span>
+                    </div>
+                </div>
+
+                <div class="demo-course">
+                    <img src="{% static "img/python-logo.png" %}" alt="">
+                    <div class="details">
+                        <h3>Learn Python</h3>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Updated 18/09/23</span>
+                        <br>
+                        <br>
+                        <span>[315 Enrolled]</span>
+                    </div>
+                </div>
+
+                <div class="demo-course">
+                    <img src="{% static "img/java-logo.png" %}" alt="">
+                    <div class="details">
+                        <h3>Java for Beginners</h3>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Updated 22/02/23</span>
+                        <br>
+                        <br>
+                        <span>[216 Enrolled]</span>
+                    </div>
+                </div>
+
+                <div class="demo-course">
+                    <img src="{% static "img/ai-logo.jpg" %}" alt="">
+                    <div class="details">
+                        <h3>Artificial Intelligence</h3>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Updated 06/10/23</span>
+                        <br>
+                        <br>
+                        <span>[424 Enrolled]</span>
+                    </div>
+                </div>
+
+                <div class="demo-course">
+                    <img src="{% static "img/ml-logo.png" %}" alt="">
+                    <div class="details">
+                        <h3>Machine Learning</h3>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Updated 16/03/23</span>
+                        <br>
+                        <br>
+                        <span>[180 Enrolled]</span>
+                    </div>
+                </div>
+
+                <div class="demo-course">
+                    <img src="{% static "img/web-logo.png" %}" alt="">
+                    <div class="details">
+                        <h3>Web Developement</h3>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Updated 07/08/23</span>
+                        <br>
+                        <br>
+                        <span>[720 Enrolled]</span>
+                    </div>
+                </div>
+                <div class="demo-course">
+                    <img src="{% static "img/hadoop-logo.jpg" %}" alt="">
+                    <div class="details">
+                        <h3>Hadoop</h3>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Updated 24/03/23</span>
+                        <br>
+                        <br>
+                        <span>[480 Enrolled]</span>
+                    </div>
+                </div>
+        
+                <div class="demo-course">
+                    <img src="{% static "img/nlp-logo.jpg" %}" alt="">
+                    <div class="details">
+                        <h3>NLP Beginners</h3>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Updated 07/09/23</span>
+                        <br>
+                        <br>
+                        <span>[360 Enrolled]</span>
+                    </div>
+                </div>
+                <div class="demo-course">
+                    <img src="{% static "img/python-logo.png" %}" alt="">
+                    <div class="details">
+                        <h3>Learn Python</h3>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Updated 18/09/23</span>
+                        <br>
+                        <br>
+                        <span>[315 Enrolled]</span>
+                    </div>
+                </div>
+
+                <div class="demo-course">
+                    <img src="{% static "img/java-logo.png" %}" alt="">
+                    <div class="details">
+                        <h3>Java for Beginners</h3>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Updated 22/02/23</span>
+                        <br>
+                        <br>
+                        <span>[216 Enrolled]</span>
+                    </div>
+                </div>
+
+                <div class="demo-course">
+                    <img src="{% static "img/ai-logo.jpg" %}" alt="">
+                    <div class="details">
+                        <h3>Artificial Intelligence</h3>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Updated 06/10/23</span>
+                        <br>
+                        <br>
+                        <span>[424 Enrolled]</span>
+                    </div>
+                </div>
+
+                <div class="demo-course">
+                    <img src="{% static "img/ml-logo.png" %}" alt="">
+                    <div class="details">
+                        <h3>Machine Learning</h3>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>Updated 16/03/23</span>
+                        <br>
+                        <br>
+                        <span>[180 Enrolled]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lr">
+            {% comment %} for event handling please five id to login or registration same as nav bar {% endcomment %}
+            <h2>Please Sign In or Register to enroll yourself for a course you want!</h2>
+            <div class="bttn">
+                <a href='{% url 'signin' %}'>Sign In</a>
+                <a href='{% url 'register' %}'>Register</a>
+            </div>
+        </div>
+    </section>
+    {% comment %} main body section of default page ends here {% endcomment %}
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Education</h3>
+                <ul>
+                    <li><a href="">Courses</a></li>
+                    <li><a href="">Curriculums</a></li>
+                    <li><a href="">Scholarships</a></li>
+                    <li><a href="">Colaboration Cells</a></li>
+                    <li><a href="">e-Library</a></li>
+                    <li><a href="">e-Magazines</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="">Personal Teaching Assistance</a></li>
+                    <li><a href="">Financial Aid</a></li>
+                    <li><a href="">Internship Programme</a></li>
+                    <li><a href="">Job Fair</a></li>
+                    <li><a href="">Health Programme</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Career</h3>
+                <ul>
+                    <li><a href="">Our Culture</a></li>
+                    <li><a href="">Job Goals</a></li>
+                    <li><a href="">Apply for LearnApp</a></li>
+                    <li><a href="">Apply for our other firms</a></li>
+                    <li><a href="">Induction Programme</a></li>
+                </ul>
+            </div>
+            <div class="news-letter">
+                <img src="{% static "img/logo.png" %}" alt="">
+                <h4>For any queries, please contact us</h4>
+                <div class="mail">
+                    <h5>support@LearnApp.com</h5>
+                </div>
+             </div>
+        </div>
+        <div class="rights">
+            <h4>Copyright ©2023 All rights reserved | Developed and maintained by <img src="{% static "img/icon-logo.png" %}" alt=""> LearnApp</h4>
+        </div>
+    </footer>
+</body>
+</html>

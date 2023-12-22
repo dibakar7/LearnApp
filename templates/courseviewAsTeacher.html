@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Teacher Profile Page</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'img/icon-logo.png' %}">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/default.css'%}">
+    </head>
+    <body>
+        <header>
+            <img src="{% static "img/logo.png" %}" alt="">
+            <div class="navigation">
+                <ul>
+                    <li><a href='{% url 'teacher-profile' teacher_item.first_name %}'>{{ teacher_item.first_name }}</a></li>
+                    <li><button onClick="location.href='{% url 'signout' %}'" class="btn">Sign Out</button></li>
+                </ul>
+            </div>
+        </header>
+        <section class="main-body">
+            <div class="course-enrolledStudent-flex">
+                <div class="course-details">
+                    <h3>Course Details</h3>
+                    <div class="image-container">
+                        <img src="{{ course_item.course_img.url }}" alt="{{course_item.course_name}}">
+                    </div>
+                    <div class="course-information">
+                        <h4>{{ course_item.course_name }}</h4>
+                        <h5><b>{{ noOfStudentsEnrolled }}</b> student(s) enrolled!</h5>
+                    </div>
+                    <button class="btn" onclick="window.open('{% url 'open_pdf' teacher_item.first_name course_item.id %}')">PDF</button>
+                    <a href="{{ course_item.external_links }}" target="blank">
+                        <button class="btn">External Links</button>
+                    </a>
+                    <button id="myButton">Update</button>
+                </div>
+                <div class="updateform">
+                    <form id="myForm" method="POST">
+                        <h3>Update Course</h3>
+                        {% csrf_token %}
+                        <label for="cdesc"><b>Course Description:</b></label><br>
+                        <textarea name="cdesc" id="cdesc" cols="30" name="cdesc" rows="10"></textarea><br>
+                        <label for="course notes"><b>Notes :</b></label><br>
+                        <input type="file" id="courseNotes" name="courseNotes" accept=".pdf" action="/upload"><br><br>
+                        <label for="external links"><b>External Link :</b></label><br>
+                        <input type="text" id="externalLinks" name="externalLinks"><br>
+                        <input class="btn" type="submit" value="Submit"><br>
+                    </form>
+                </div>
+                <script>
+                    document.getElementById("myButton").addEventListener("click", function() {
+                        var x = document.getElementById("myForm");
+                        if (x.style.display === "none") {
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none";
+                        }
+                    });
+                </script>
+                <div class="enrolled-student">
+                    <h3>Enrolled Students</h3>
+                    <div class="student-information">
+                        {% for student in nameOfEnrolledStudents %}
+                        <div class="img-id-name-flex">
+                            <img src="{% static "img/user.png" %}" alt="Profile-icon">
+                            <h4>S{{student.student_id}}</h4>
+                            <h4>{{student.student_name}}</h4>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Education</h3>
+                    <ul>
+                        <li><a href="">Courses</a></li>
+                        <li><a href="">Curriculums</a></li>
+                        <li><a href="">Scholarships</a></li>
+                        <li><a href="">Colaboration Cells</a></li>
+                        <li><a href="">e-Library</a></li>
+                        <li><a href="">e-Magazines</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="">Personal Teaching Assistance</a></li>
+                        <li><a href="">Financial Aid</a></li>
+                        <li><a href="">Internship Programme</a></li>
+                        <li><a href="">Job Fair</a></li>
+                        <li><a href="">Health Programme</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Career</h3>
+                    <ul>
+                        <li><a href="">Our Culture</a></li>
+                        <li><a href="">Job Goals</a></li>
+                        <li><a href="">Apply for LearnApp</a></li>
+                        <li><a href="">Apply for our other firms</a></li>
+                        <li><a href="">Induction Programme</a></li>
+                    </ul>
+                </div>
+                <div class="news-letter">
+                    <img src="{% static "img/logo.png" %}" alt="">
+                    <h4>For any queries, please contact us</h4>
+                    <div class="mail">
+                        <h5>support@LearnApp.com</h5>
+                    </div>
+                 </div>
+            </div>
+            <div class="rights">
+                <h4>Copyright ©2023 All rights reserved | Developed and maintained by <img src="{% static "img/icon-logo.png" %}" alt=""> LearnApp</h4>
+            </div>
+        </footer>
+    </body>
+</html>

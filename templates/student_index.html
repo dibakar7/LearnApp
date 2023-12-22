@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Student Home Page</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'img/icon-logo.png' %}">
+        {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            window.onbeforeunload = function() {
+                $.ajax({
+                    url: 'signout',
+                    type: 'POST',
+                    async: false,
+                    data: {
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    }
+                });
+            };
+        </script> {% endcomment %}
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/default.css'%}">
+    </head>
+    <body>
+        <header>
+            <img src="{% static "img/logo.png" %}" alt="">
+            <div class="navigation">
+                <ul>
+                    <li><a href='{% url 'student-home' %}'>Home</a></li>
+                    <li><a href='{% url 'student-profile' first_name %}'>{{ first_name }}</a></li>
+                    <li><button onClick="location.href='{% url 'signout' %}'" class="btn">Sign Out</button></li>
+                </ul>
+            </div>
+        </header>
+        <section id="main-body">
+            <div class="course-box">
+                <h3 class="heading">Our Best Courses</h3>
+                <div class="sheet">
+                    {% for item in data %}
+                    <div class="demo-course">
+                        <a href="{% url 'course_details' item.id %}">
+                            <img src="{{ item.course_img.url }}" alt="{{item.course_name}}">
+                        </a>
+                        <div class="details">
+                            <h3>{{ item.course_name }}</h3>
+                            <span>By: {{ item.created_by }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Education</h3>
+                    <ul>
+                        <li><a href="">Courses</a></li>
+                        <li><a href="">Curriculums</a></li>
+                        <li><a href="">Scholarships</a></li>
+                        <li><a href="">Colaboration Cells</a></li>
+                        <li><a href="">e-Library</a></li>
+                        <li><a href="">e-Magazines</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="">Personal Teaching Assistance</a></li>
+                        <li><a href="">Financial Aid</a></li>
+                        <li><a href="">Internship Programme</a></li>
+                        <li><a href="">Job Fair</a></li>
+                        <li><a href="">Health Programme</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Career</h3>
+                    <ul>
+                        <li><a href="">Our Culture</a></li>
+                        <li><a href="">Job Goals</a></li>
+                        <li><a href="">Apply for LearnApp</a></li>
+                        <li><a href="">Apply for our other firms</a></li>
+                        <li><a href="">Induction Programme</a></li>
+                    </ul>
+                </div>
+                <div class="news-letter">
+                    <img src="{% static "img/logo.png" %}" alt="">
+                    <h4>For any queries, please contact us</h4>
+                    <div class="mail">
+                        <h5>support@LearnApp.com</h5>
+                    </div>
+                 </div>
+            </div>
+            <div class="rights">
+                <h4>Copyright ©2023 All rights reserved | Developed and maintained by <img src="{% static "img/icon-logo.png" %}" alt=""> LearnApp</h4>
+            </div>
+        </footer>
+    </body>
+</html>
