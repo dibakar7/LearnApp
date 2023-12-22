@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'LearnApp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'learnappdb',
-        'USER': 'root',
-        'PASSWORD': 'root@1234',
+        'NAME': 'Your DB name',
+        'USER': 'User',
+        'PASSWORD': 'Your Password',
         'HOST': 'localhost',  # or the hostname where your MySQL server is running
         'PORT': '3306',      # or the port on which your MySQL server is listening
     }
